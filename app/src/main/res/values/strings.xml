@@ -16,9 +16,29 @@
     <string name="first_slide_desc">You can search any place nearby or with-in the specified city. We will display specific or all related shops to match your search </string>
     <string name="second_slide_desc">We provide almost all the numbers of all departments and shops registered with us. You can perform </string>
     <string name="third_slide_desc">If you have a shop or somethings and want to be a part of our growing industry then add your place</string>
-    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you don\'t have to worry  </string>
+    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you don\'t have to worry about  </string>
 
+    <!-- Buttons -->
     <string name="skip_btn">Skip</string>
     <string name="next_btn">Next</string>
     <string name="let_get_started">Lets Get Started</string>
+
+    <!-- Strings for dashboard -->
+
+    <!-- Categories -->
+    <string name="hotels">Hotels</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="shops">Shops</string>
+    <string name="banks">Banks</string>
+    <string name="airports">Education</string>
+
+    <!-- Titles and descriptions -->
+    <string name="featured_locations">All Featured Locations</string>
+    <string name="featured_locations_description">All the Locations that are featured and have the top demand in town!</string>
+    <string name="most_viewed_locations">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View All</string>
+    <string name="search_text">Search..</string>
+
+
 </resources>
