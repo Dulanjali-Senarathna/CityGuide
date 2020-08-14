@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">City Guide</string>
+    <string name="logo_name">Get A Way</string>
+    <string name="slogan_name">We will help you to find your way!</string>
 </resources>
