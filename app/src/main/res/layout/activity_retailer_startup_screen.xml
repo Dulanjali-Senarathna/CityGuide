@@ -45,15 +45,20 @@
             android:layout_marginTop="40dp">
             
             <Button
+
+                android:id="@+id/login_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/login"
                 android:textColor="@color/black"
                 android:background="@color/colorPrimary"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:onClick="callLoginScreen"
+                android:transitionName="transition_login"/>
 
             <Button
+                android:id="@+id/signup_btn"
                 android:textColor="@color/black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

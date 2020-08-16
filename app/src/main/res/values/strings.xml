@@ -58,11 +58,12 @@
     <string name="sign_up">Sign Up</string>
     <string name="retailer_heading">Grow\nYour Business</string>
     <string name="retailer_tag_line">We will help you to grow your business using online services!</string>
-    <string name="create_account">Create\nAccount</string>
+    <string name="create_account">Create Account</string>
     <string name="how_we_work">How we work?</string>
     <string name="remember_me">Remember Me</string>
     <string name="forget_password">Forget Password</string>
-
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
 
 
 </resources>
