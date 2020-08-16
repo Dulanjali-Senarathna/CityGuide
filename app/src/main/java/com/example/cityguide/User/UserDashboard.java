@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.cityguide.Common.LoginSignup.RetailerStartupScreen;
 import com.example.cityguide.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.example.cityguide.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.example.cityguide.HelperClasses.HomeAdapter.FeaturedAdapter;
@@ -114,6 +115,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         else {
             super.onBackPressed();
         }
+    }
+
+    public void callRetailerScreens(View view){
+        startActivity(new Intent(getApplicationContext(), RetailerStartupScreen.class));
     }
 
     @Override
