@@ -1,6 +1,7 @@
 package com.example.cityguide.User;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,7 @@ import com.example.cityguide.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.cityguide.HelperClasses.HomeAdapter.MostViewedAdapter;
 import com.example.cityguide.HelperClasses.HomeAdapter.MostViewedHelperClass;
 import com.example.cityguide.R;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,10 @@ public class UserDashboard extends AppCompatActivity {
 
     RecyclerView featuredRecycler,mostViewedRecycler,categoriesRecycler;
     RecyclerView.Adapter adapter;
+
+    //Drawer menu
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,10 @@ public class UserDashboard extends AppCompatActivity {
         featuredRecycler = findViewById(R.id.featured_recycler);
         mostViewedRecycler = findViewById(R.id.mv_recycler);
         categoriesRecycler = findViewById(R.id.ct_recycler);
+
+        //Hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
 
 
         featuredRecycler();

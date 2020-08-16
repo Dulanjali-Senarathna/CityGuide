@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">City Guide</string>
     <string name="logo_name">Get A Way</string>
-    <string name="slogan_name">We will help you to find your way!</string>
+    <string name="slogan_name">Everything your city</string>
     <string name="powered_by">Powered by Dulanjali Senarathna</string>
+    <string name="home">HOME</string>
+    <string name="search">SEARCH</string>
+    <string name="all_categories">ALL CATEGORIES</string>
+    <string name="add_missing_place">ADD MISSING PLACES</string>
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+
 
     <!-- Strings for on boarding screen -->
 
@@ -30,7 +38,10 @@
     <string name="restaurants">Restaurants</string>
     <string name="shops">Shops</string>
     <string name="banks">Banks</string>
-    <string name="airports">Education</string>
+    <string name="education">Education</string>
+
+    <string name="share">Share</string>
+    <string name="rate_us">Rate Us</string>
 
     <!-- Titles and descriptions -->
     <string name="featured_locations">All Featured Locations</string>
