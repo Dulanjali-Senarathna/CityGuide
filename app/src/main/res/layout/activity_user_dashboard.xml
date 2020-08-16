@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User.UserDashboard"
-    tools:openDrawer="start"
     android:id="@+id/drawer_layout"
    >
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigation_view"
+            android:theme="@style/navigationTheme"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/lightWhite"
@@ -19,6 +19,7 @@
             app:menu="@menu/main_menu"/>
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -30,6 +31,7 @@
         android:padding="20dp">
 
         <ImageView
+            android:id="@+id/menu_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/menu_icon"

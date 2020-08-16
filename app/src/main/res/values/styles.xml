@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Menu styles-->
+    <style name="navigationTheme">
+
+        <!--Colors of text and icon when selected -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- Background Color when selected -->
+        <item name="colorControlHighlight">@color/colorAccent</item>
+
+    </style>
+
 </resources>
