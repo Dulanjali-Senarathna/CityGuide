@@ -39,6 +39,9 @@
     <string name="shops">Shops</string>
     <string name="banks">Banks</string>
     <string name="education">Education</string>
+    <string name="car_rent">Car Rent</string>
+    <string name="expand_all">Expand All</string>
+    <string name="hospital">Hospitals</string>
 
     <string name="share">Share</string>
     <string name="rate_us">Rate Us</string>
