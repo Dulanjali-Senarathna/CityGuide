@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Common.LoginSignup.VerifyOTP"></activity>
+        <activity android:name=".Common.LoginSignup.MakeSelection"></activity>
+        <activity android:name=".Common.LoginSignup.ForgetPassword" />
+        <activity android:name=".Common.LoginSignup.VerifyOTP" />
         <activity android:name=".Common.LoginSignup.SignUp3rdClass" />
         <activity android:name=".Common.LoginSignup.SignUp2ndClass" />
         <activity android:name=".Common.LoginSignup.SignUp" />
