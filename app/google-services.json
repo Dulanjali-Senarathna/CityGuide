@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "257078230145",
+    "firebase_url": "https://city-guide-dace8.firebaseio.com",
+    "project_id": "city-guide-dace8",
+    "storage_bucket": "city-guide-dace8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257078230145:android:49bb5879bb435c2cbea180",
+        "android_client_info": {
+          "package_name": "com.example.cityguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257078230145-rn84uhui35fc9qjka3gb6ucai1ro0viv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cityguide",
+            "certificate_hash": "7657e99ee7faf497d0e52e0d7fc12a5ed2e2307e"
+          }
+        },
+        {
+          "client_id": "257078230145-1n0c9nirc7r9t7a0m17o88e0o70je5j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC7VzZ-C5lVvWj1a_ifkuLq5A8p8yTm3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257078230145-1n0c9nirc7r9t7a0m17o88e0o70je5j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
