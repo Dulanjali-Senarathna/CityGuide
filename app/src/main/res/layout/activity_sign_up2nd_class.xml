@@ -48,6 +48,7 @@
              />
 
             <RadioGroup
+                android:id="@+id/radio_group"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -55,19 +56,19 @@
                 android:layout_marginTop="10dp">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/others"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Other" />
@@ -89,6 +90,7 @@
                 />
 
             <DatePicker
+                android:id="@+id/age_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:datePickerMode="spinner"
@@ -98,7 +100,7 @@
         </LinearLayout>
 
         <Button
-            android:onClick="callNextSignupScreen2"
+            android:onClick="call3rdSignupScreen"
             android:id="@+id/signup_next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
