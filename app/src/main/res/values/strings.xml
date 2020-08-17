@@ -64,6 +64,9 @@
     <string name="forget_password">Forget Password</string>
     <string name="enter_username">Enter Username</string>
     <string name="enter_password">Enter Password</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="email">Email</string>
+    <string name="enter_phone_number">Phone Number</string>
 
 
 </resources>

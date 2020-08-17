@@ -35,4 +35,8 @@ public class RetailerStartupScreen extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    public void callSignupScreen(View view){
+        startActivity(new Intent(getApplicationContext(), SignUp.class));
+    }
 }
