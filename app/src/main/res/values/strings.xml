@@ -77,6 +77,10 @@
     <string name="make_selection">Make Selection</string>
     <string name="enter_email">Enter Email</string>
     <string name="via_sms">via sms</string>
+    <string name="new_credentials">New Credentials</string>
+    <string name="new_credentials_detail">Your identity has been verified! Set your new password</string>
+    <string name="password_updated">Password Updated</string>
+    <string name="password_updated_success_message">Your password has been updated</string>
 
 
 </resources>
