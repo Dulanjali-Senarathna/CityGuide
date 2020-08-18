@@ -21,6 +21,7 @@ public class SignUp extends AppCompatActivity {
     Button next,login;
     TextView titleText;
 
+
     //Get Data variables
     TextInputLayout fullName,username,email,password;
 
@@ -50,7 +51,17 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
+        String _username = username.getEditText().getText().toString();
+        String _fullName = fullName.getEditText().getText().toString();
+        String _email = email.getEditText().getText().toString();
+        String _password = password.getEditText().getText().toString();
+
         Intent intent = new Intent(getApplicationContext(),SignUp2ndClass.class);
+
+        intent.putExtra("fullName",_fullName);
+        intent.putExtra("email",_email);
+        intent.putExtra("username",_username);
+        intent.putExtra("password",_password);
 
         //Add transition
         Pair[] pairs = new Pair[4];

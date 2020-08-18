@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
+import com.example.cityguide.Databases.UserHelperClass;
 import com.example.cityguide.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -47,9 +50,8 @@ public class VerifyOTP extends AppCompatActivity {
         gender = getIntent().getStringExtra("gender");
         phoneNo = getIntent().getStringExtra("phoneNo");
 
-        String _phoneNo = getIntent().getStringExtra("phoneNo");
 
-        sendVerificationCodeToUser(_phoneNo);
+        sendVerificationCodeToUser(phoneNo);
     }
 
     private void sendVerificationCodeToUser(String phoneNo) {
@@ -104,8 +106,7 @@ public class VerifyOTP extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(VerifyOTP.this, "Verification completed!", Toast.LENGTH_SHORT).show();
-
+                           storeNewUserData();
 
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -116,9 +117,19 @@ public class VerifyOTP extends AppCompatActivity {
                 });
     }
 
+    private void storeNewUserData() {
+
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users");
+
+        UserHelperClass addNewUser = new UserHelperClass(fullName,username,email,phoneNo,password,date,gender);
+
+        reference.child(phoneNo).setValue(addNewUser);
+
+
+    }
+
     public void callNextScreenFromOTP(View view){
-
-
 
        String code = pinFromUser.getText().toString();
        if(!code.isEmpty()){
