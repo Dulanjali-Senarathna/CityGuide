@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.cityguide.Databases.SessionManager;
+import com.example.cityguide.LocationOwner.RetailerDashboard;
 import com.example.cityguide.R;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
@@ -83,9 +85,17 @@ public class Login extends AppCompatActivity {
                         password.setErrorEnabled(false);
 
                         String _fullName = dataSnapshot.child(_completePhoneNumber).child("fullName").getValue(String.class);
+                        String _username = dataSnapshot.child(_completePhoneNumber).child("username").getValue(String.class);
                         String _email = dataSnapshot.child(_completePhoneNumber).child("email").getValue(String.class);
                         String _phoneNo = dataSnapshot.child(_completePhoneNumber).child("phoneNo").getValue(String.class);
                         String _dateOfBirth = dataSnapshot.child(_completePhoneNumber).child("date").getValue(String.class);
+                        String _gender = dataSnapshot.child(_completePhoneNumber).child("gender").getValue(String.class);
+
+                        //create a session
+                        SessionManager sessionManager = new SessionManager(Login.this);
+                        sessionManager.createLoginSession(_fullName,_username,_email,_phoneNo,_password,_dateOfBirth,_gender);
+
+                        startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));
 
                         Toast.makeText(Login.this, _fullName+"\n"+_email+"\n"+_phoneNo+"\n"+_dateOfBirth, Toast.LENGTH_SHORT).show();
                     }
