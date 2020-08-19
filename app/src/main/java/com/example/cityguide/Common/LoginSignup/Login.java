@@ -3,8 +3,15 @@ package com.example.cityguide.Common.LoginSignup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
@@ -39,13 +46,19 @@ public class Login extends AppCompatActivity {
 
     }
 
+    //login the user in app
     public void letTheUserLoggedIn(View view){
 
+        if(!isConnected(this)){
+            showCustomDialog();
+        }
+
+        //validate username & password
         if(!validateFields()){
             return;
         }
 
-        //get data
+        //get data from fields
         String _phoneNumber = phoneNumber.getEditText().getText().toString().trim();
         final String _password = password.getEditText().getText().toString().trim();
 
@@ -96,6 +109,40 @@ public class Login extends AppCompatActivity {
 
     }
 
+    private void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+        builder.setMessage("Please connect to the internet to proceed further")
+                .setCancelable(false)
+                .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(getApplicationContext(),RetailerStartupScreen.class));
+                        finish();
+                    }
+                });
+    }
+
+    //Check the internet connection
+    private boolean isConnected(Login login) {
+        ConnectivityManager connectivityManager= (ConnectivityManager) login.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo wifiConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobileConn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        if(wifiConn != null && wifiConn.isConnected()|| (mobileConn != null && mobileConn.isConnected())){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    //Fields validation
     private boolean validateFields() {
         String _phoneNumber = phoneNumber.getEditText().getText().toString().trim();
         String _password = password.getEditText().getText().toString().trim();
@@ -111,5 +158,10 @@ public class Login extends AppCompatActivity {
         }else {
             return true;
         }
+    }
+
+    //Function to call forger password screen
+    public void callForgetPassword(View view){
+        startActivity(new Intent(getApplicationContext(),ForgetPassword.class));
     }
 }

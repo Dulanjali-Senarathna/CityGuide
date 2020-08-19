@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class VerifyOTP extends AppCompatActivity {
 
     PinView pinFromUser;
-    String codeBySystem,fullName,phoneNo,email,username,password,date,gender;
+    String codeBySystem,fullName,phoneNo,email,username,password,date,gender,whatToDo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class VerifyOTP extends AppCompatActivity {
         //hooks
         pinFromUser = findViewById(R.id.pin_view);
 
+        //get all the data from intent
         fullName = getIntent().getStringExtra("fullName");
         email = getIntent().getStringExtra("email");
         username = getIntent().getStringExtra("username");
@@ -49,6 +50,7 @@ public class VerifyOTP extends AppCompatActivity {
         date = getIntent().getStringExtra("date");
         gender = getIntent().getStringExtra("gender");
         phoneNo = getIntent().getStringExtra("phoneNo");
+        whatToDo = getIntent().getStringExtra("whatToDo");
 
 
         sendVerificationCodeToUser(phoneNo);
@@ -106,7 +108,13 @@ public class VerifyOTP extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                           storeNewUserData();
+
+                           if(whatToDo.equals("updateData")){
+                               updateOldUsersData();
+                           }
+                           else {
+                               storeNewUserData();
+                           }
 
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
@@ -115,6 +123,13 @@ public class VerifyOTP extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void updateOldUsersData() {
+        Intent intent = new Intent(getApplicationContext(),SetNewPassword.class);
+        intent.putExtra("phoneNo",phoneNo);
+        startActivity(intent);
+        finish();
     }
 
     private void storeNewUserData() {
