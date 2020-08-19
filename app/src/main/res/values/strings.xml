@@ -66,7 +66,7 @@
     <string name="enter_password">Enter Password</string>
     <string name="enter_full_name">Enter Full Name</string>
     <string name="email">Email</string>
-    <string name="enter_phone_number">Phone Number</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
 
     <!-- OTP Screen -->
     <string name="otp_code_text">Co\nde</string>
