@@ -14,12 +14,14 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.cityguide.Databases.SessionManager;
 import com.example.cityguide.LocationOwner.RetailerDashboard;
 import com.example.cityguide.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,11 +30,15 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 
+import java.util.HashMap;
+
 public class Login extends AppCompatActivity {
 
     //Variables
     CountryCodePicker countryCodePicker;
     TextInputLayout phoneNumber,password;
+    CheckBox rememberMe;
+    TextInputEditText phoneNumberEditText,passwordEditText;
 
 
     @Override
@@ -45,6 +51,17 @@ public class Login extends AppCompatActivity {
         countryCodePicker = findViewById(R.id.login_country_code_picker);
         phoneNumber = findViewById(R.id.login_phone_number);
         password = findViewById(R.id.login_password);
+        rememberMe = findViewById(R.id.remember_me);
+        phoneNumberEditText = findViewById(R.id.login_phone_number_editText);
+        passwordEditText  = findViewById(R.id.login_password_editText);
+
+        //check whether phone number and password already saved in shared preference or not
+        SessionManager sessionManager = new SessionManager(Login.this,SessionManager.SESSION_REMEMBERME);
+        if(sessionManager.checkRememberMe()){
+            HashMap<String,String> rememberMeDetails  = sessionManager.getRememberMeDetailFromSession();
+            phoneNumberEditText.setText(rememberMeDetails.get(SessionManager.KEY_SESSIONPHONENUMBER));
+            passwordEditText.setText(rememberMeDetails.get(SessionManager.KEY_SESSIONPASSWORD));
+        }
 
     }
 
@@ -70,6 +87,13 @@ public class Login extends AppCompatActivity {
 
         final String _completePhoneNumber = "+"+countryCodePicker.getFullNumber()+_phoneNumber;
 
+        if(rememberMe.isChecked()){
+            SessionManager sessionManager = new SessionManager(Login.this,SessionManager.SESSION_REMEMBERME);
+            sessionManager.createRememberSession(_phoneNumber,_password);
+        }
+
+
+        //check whether the user exist or not in database
         Query checkUser = FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNo").equalTo(_completePhoneNumber);
 
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -92,7 +116,7 @@ public class Login extends AppCompatActivity {
                         String _gender = dataSnapshot.child(_completePhoneNumber).child("gender").getValue(String.class);
 
                         //create a session
-                        SessionManager sessionManager = new SessionManager(Login.this);
+                        SessionManager sessionManager = new SessionManager(Login.this,SessionManager.SESSION_USERSESSION);
                         sessionManager.createLoginSession(_fullName,_username,_email,_phoneNo,_password,_dateOfBirth,_gender);
 
                         startActivity(new Intent(getApplicationContext(), RetailerDashboard.class));

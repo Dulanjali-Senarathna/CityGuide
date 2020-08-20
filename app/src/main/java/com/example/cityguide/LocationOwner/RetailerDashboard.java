@@ -19,7 +19,7 @@ public class RetailerDashboard extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.textView);
 
-        SessionManager sessionManager = new SessionManager(this);
+        SessionManager sessionManager = new SessionManager(RetailerDashboard.this,SessionManager.SESSION_USERSESSION);
        HashMap<String,String> userDetails = sessionManager.getUserDetailFromSession();
 
        String fullName = userDetails.get(SessionManager.KEY_FULLNAME);
